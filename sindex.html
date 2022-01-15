@@ -65,10 +65,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- For JavaScript List -->
-                        <ul id="income-list">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark text-center">
+                                <tr>
+                                    <th scope="col">তারিখ</th>
+                                    <th scope="col">বিবরণী</th>
+                                    <th scope="col">পরিমান</th>
+                                </tr>
+                            </thead>
+                            <tbody id="income-list">
 
-                        </ul>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -90,9 +98,18 @@
                             </div>
                         </div>
                         <!-- For JavaScript List -->
-                        <ul id="expense-list">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark text-center">
+                                <tr>
+                                    <th scope="col">তারিখ</th>
+                                    <th scope="col">বিবরণী</th>
+                                    <th scope="col">পরিমান</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expense-list">
 
-                        </ul>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -102,37 +119,29 @@
         <div class="container">
             <div class="modal fade" id="incomemodal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modal-title"> </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <h4 id="modalTitle"></h4>
-                            <h4 id="modalprice"></h4>
+                        <div class="modal-body text-center">
+                            <h4 id="incMessage"></h4>
                         </div>
-                        <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
-                        </div> -->
                     </div>
                 </div>
             </div>
 
             <div class="modal fade" id="exmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modal-titlex"> </h5>
+                            <h5 class="modal-title" id="exp-title"> </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <h4 id="modalTitleex"></h4>
-                            <h4 id="modalpriceex"></h4>
+                        <div class="modal-body text-center">
+                            <h4 id="expMessage"></h4>
                         </div>
-                        <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
-                        </div> -->
                     </div>
                 </div>
             </div>
