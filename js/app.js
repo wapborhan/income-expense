@@ -1,7 +1,10 @@
 const userName = prompt("আপনার নাম লিখুন : ");
 // const userName = "Borhan Uddin";
 let showName = `হ্যালো ${userName}`;
-document.getElementById("nameTitle").innerHTML = `${userName} এর আয় ব্যয় হিসাব`;
+let showTitle = userName;
+document.getElementById(
+  "nameTitle"
+).innerHTML = `${showTitle} এর আয় ব্যয় হিসাব`;
 
 var today = new Date();
 var date =
