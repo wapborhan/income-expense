@@ -6,10 +6,37 @@ var today = new Date();
 var date =
   today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
 
+//Get Income Data From Localstorage
+let incData = JSON.parse(localStorage.getItem("incomeDetails"));
+
+if (incData) {
+  incData.forEach((element) => {
+    income(element);
+  });
+}
+
+//Get Expense Data From Localstorage
+let expData = JSON.parse(localStorage.getItem("expenseDetails"));
+
+if (expData) {
+  expData.forEach((element) => {
+    expense(element);
+  });
+}
+
 //Income Function
-function income() {
-  let incDetails = document.getElementById("income-detail").value;
-  let incAmount = document.getElementById("incamount").value;
+function income(obj) {
+  let incDtl = document.getElementById("income-detail");
+  let incAmnt = document.getElementById("incamount");
+
+  let incDetails = incDtl.value;
+  let incAmount = incAmnt.value;
+
+  if (obj) {
+    date = obj.idate;
+    incDetails = obj.idesc;
+    incAmount = obj.iamm;
+  }
 
   if (incAmount == "" || incAmount == NaN) {
     document.getElementById("modal-title").innerHTML = showName;
@@ -21,17 +48,23 @@ function income() {
   }
 
   if (incNumber < 0) {
+    inclclAdd();
     alert("Please enter correct value greater than 0");
   } else {
     // Creating and adding data to table
     let tr = document.createElement("tr");
+    tr.setAttribute("id", "itr");
     // Create Table <td>
     let crdate = document.createElement("th");
     crdate.innerHTML = date;
+    crdate.setAttribute("id", "idate");
     let cedesc = document.createElement("td");
     cedesc.innerHTML = incDetails;
+    cedesc.setAttribute("id", "idesc");
     let cramm = document.createElement("td");
     cramm.innerHTML = incAmount;
+    cramm.setAttribute("id", "iamm");
+
     // <td> Append Inside <tr>
     tr.appendChild(crdate);
     tr.appendChild(cedesc);
@@ -66,12 +99,23 @@ function income() {
     document.getElementById("income-detail").value = "";
     document.getElementById("incamount").value = "";
   }
+  inclclAdd();
 }
 
 //Expense Function
-function expense() {
-  var exDetails = document.getElementById("ex-detail").value;
-  var exAmount = document.getElementById("ex-amount").value;
+function expense(obj) {
+  var exdtl = document.getElementById("ex-detail");
+  var exAmnt = document.getElementById("ex-amount");
+
+  let exDetails = exdtl.value;
+  let exAmount = exAmnt.value;
+
+  if (obj) {
+    date = obj.edate;
+    exDetails = obj.edesc;
+    exAmount = obj.eamm;
+  }
+
   if (exAmount == "" || exAmount == NaN) {
     document.getElementById("exp-title").innerHTML = showName;
     document.getElementById("expMessage").innerHTML =
@@ -86,13 +130,17 @@ function expense() {
   } else {
     // Creating and adding data to table
     let tr = document.createElement("tr");
+    tr.setAttribute("id", "etr");
     // Create Table <td>
     let crdate = document.createElement("th");
     crdate.innerHTML = date;
+    crdate.setAttribute("id", "edate");
     let cedesc = document.createElement("td");
     cedesc.innerHTML = exDetails;
+    cedesc.setAttribute("id", "edesc");
     let cramm = document.createElement("td");
     cramm.innerHTML = exAmount;
+    cramm.setAttribute("id", "eamm");
     // <td> Append Inside <tr>
     tr.appendChild(crdate);
     tr.appendChild(cedesc);
@@ -101,13 +149,6 @@ function expense() {
     let tbody = document.getElementById("expense-list");
     // <tr> Append Inside Income List Id
     tbody.appendChild(tr);
-
-    // var exlist = document.createTextNode(
-    //   exDetails + " = " + exAmount + " Taka"
-    // );
-    // var list = document.createElement("li");
-    // list.appendChild(exlist);
-    // document.getElementById("expense-list").appendChild(list);
 
     var expenseBalance = document.getElementById("total-expense").innerText;
     var expenseNumber = parseFloat(expenseBalance);
@@ -135,4 +176,43 @@ function expense() {
     document.getElementById("ex-detail").value = "";
     document.getElementById("ex-amount").value = "";
   }
+  explclAdd();
+}
+
+// Income Add Localstorsge
+function inclclAdd() {
+  let inclcs = document.querySelectorAll("#itr");
+
+  let lisArr = Array.from(inclcs);
+
+  let arr = [];
+
+  lisArr.forEach((element) => {
+    arr.push({
+      idate: element.children[0].innerText,
+      idesc: element.children[1].innerText,
+      iamm: element.children[2].innerText,
+    });
+  });
+
+  localStorage.setItem("incomeDetails", JSON.stringify(arr));
+}
+
+// Expense Add Localstorsge
+function explclAdd() {
+  let exclcs = document.querySelectorAll("#etr");
+
+  let lisArr = Array.from(exclcs);
+
+  let arr = [];
+
+  lisArr.forEach((element) => {
+    arr.push({
+      edate: element.children[0].innerText,
+      edesc: element.children[1].innerText,
+      eamm: element.children[2].innerText,
+    });
+  });
+
+  localStorage.setItem("expenseDetails", JSON.stringify(arr));
 }
