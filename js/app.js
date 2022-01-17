@@ -87,6 +87,7 @@ function income(obj) {
     let cedesc = document.createElement("td");
     cedesc.innerHTML = incDetails;
     cedesc.setAttribute("id", "idesc");
+    cedesc.setAttribute("class", "text-right");
     let cramm = document.createElement("td");
     cramm.innerHTML = incAmount;
     cramm.setAttribute("id", "iamm");

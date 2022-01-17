@@ -54,3 +54,6 @@ ol li:before {
     content: counter(myOrderedListItemsCounter)".";
     margin-right: .5em;
 }
+#iamm, #eamm {
+    text-align: right;
+}
