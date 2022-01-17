@@ -1,14 +1,35 @@
 const userName = prompt("আপনার নাম লিখুন : ");
 // const userName = "Borhan Uddin";
 let showName = `হ্যালো ${userName}`;
-let showTitle = userName;
-document.getElementById(
-  "nameTitle"
-).innerHTML = `${showTitle} এর আয় ব্যয় হিসাব`;
 
+// Dates FPick
 var today = new Date();
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 var date =
-  today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+  today.getDate() +
+  "-" +
+  months[today.getMonth() + 1] +
+  "-" +
+  today.getFullYear();
+
+date.toString();
+
+let dates = date;
+
+console.log(dates);
 
 //Get Income Data From Localstorage
 let incData = JSON.parse(localStorage.getItem("incomeDetails"));
@@ -33,11 +54,12 @@ function income(obj) {
   let incDtl = document.getElementById("income-detail");
   let incAmnt = document.getElementById("incamount");
 
+  let dates = date;
   let incDetails = incDtl.value;
   let incAmount = incAmnt.value;
 
   if (obj) {
-    date = obj.idate;
+    dates = obj.idate;
     incDetails = obj.idesc;
     incAmount = obj.iamm;
   }
@@ -60,7 +82,7 @@ function income(obj) {
     tr.setAttribute("id", "itr");
     // Create Table <td>
     let crdate = document.createElement("th");
-    crdate.innerHTML = date;
+    crdate.innerHTML = dates;
     crdate.setAttribute("id", "idate");
     let cedesc = document.createElement("td");
     cedesc.innerHTML = incDetails;
@@ -111,11 +133,12 @@ function expense(obj) {
   var exdtl = document.getElementById("ex-detail");
   var exAmnt = document.getElementById("ex-amount");
 
+  let dates = date;
   let exDetails = exdtl.value;
   let exAmount = exAmnt.value;
 
   if (obj) {
-    date = obj.edate;
+    dates = obj.edate;
     exDetails = obj.edesc;
     exAmount = obj.eamm;
   }
@@ -137,7 +160,7 @@ function expense(obj) {
     tr.setAttribute("id", "etr");
     // Create Table <td>
     let crdate = document.createElement("th");
-    crdate.innerHTML = date;
+    crdate.innerHTML = dates;
     crdate.setAttribute("id", "edate");
     let cedesc = document.createElement("td");
     cedesc.innerHTML = exDetails;
