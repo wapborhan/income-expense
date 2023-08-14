@@ -1,5 +1,5 @@
-const userName = prompt("আপনার নাম লিখুন : ");
-// const userName = "Borhan Uddin";
+// const userName = prompt("আপনার নাম লিখুন : ");
+const userName = "Borhan Uddin";
 let showName = `হ্যালো ${userName}`;
 
 // Dates FPick
@@ -29,7 +29,7 @@ date.toString();
 
 let dates = date;
 
-console.log(dates);
+// console.log(dates);
 
 //Get Income Data From Localstorage
 let incData = JSON.parse(localStorage.getItem("incomeDetails"));
