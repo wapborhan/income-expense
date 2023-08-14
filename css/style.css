@@ -147,15 +147,16 @@ ol li:before {
     cursor: pointer;
     margin-top: 20px;
     letter-spacing: 1px;
+    background: linear-gradient(315deg, #02d9ff, #e91e63);
 }
 
 .form .input .inputBox input[type="submit"]:hover {
-    background: linear-gradient(315deg, #5d02ff, #e91e63);
+    background: linear-gradient(-315deg, #02d9ff, #e91e63);
 }
 
 .form .input .inputBox input[type="submit"]:active {
     color: rgba(255, 255, 255, 0.521);
-    background: linear-gradient(315deg, #e91e6271, #5f02ff8c);
+    background: linear-gradient(315deg, #1ebde971, #5f02ff8c);
 }
 
 .forgot {

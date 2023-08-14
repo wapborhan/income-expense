@@ -105,13 +105,13 @@ function income(obj) {
     let balanceAmount = parseFloat(balance);
     let totalIncome = balanceAmount + incNumber;
     document.getElementById("prebalance").innerText =
-      parseFloat(totalIncome).toFixed(2);
+      parseFloat(totalIncome).toFixed(0);
 
     let balancenow = document.getElementById("balance").innerText;
     let balanceNownum = parseFloat(balancenow);
 
     let dueBalance = balanceNownum + incNumber;
-    let dueB = parseFloat(dueBalance).toFixed(2);
+    let dueB = parseFloat(dueBalance).toFixed(0);
 
     //Modal Show
     document.getElementById("modal-title").innerHTML = showName;
@@ -186,11 +186,11 @@ function expense(obj) {
     var balanceNum = parseFloat(balanceN);
 
     var dueBalanceN = balanceNum - exAmountnumber;
-    var dueBalanceNew = parseFloat(dueBalanceN).toFixed(2);
+    var dueBalanceNew = parseFloat(dueBalanceN).toFixed(0);
     document.getElementById("balance").innerHTML = dueBalanceNew;
 
     document.getElementById("total-expense").innerHTML =
-      parseFloat(totalExpense).toFixed(2);
+      parseFloat(totalExpense).toFixed(0);
 
     //Modal Show
     document.getElementById("exp-title").innerHTML = showName;
