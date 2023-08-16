@@ -1,9 +1,9 @@
-# income-expense
+# Baap er Bank
 You can manage your income and expense .
 
 # Documentation
 
-## Demo 
+## login information 
 <a href="https://code.wapborhan.com/income-expense/"> Click Here </a>
 | Email      | Password |
 | ----------- | ----------- |
